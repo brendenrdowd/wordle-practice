@@ -8,7 +8,7 @@ const useWordle = (solution) => {
   const [isCorrect, setIsCorrect] = useState(false);
 
   const formatGuess = () => {
-    let solutionArray = [...solution];
+    let solutionArray = [...solution.toLowerCase()];
     let formattedGuess = [...currentGuess].map((letter) => {
       return { key: letter, color: "grey" };
     });
@@ -28,7 +28,6 @@ const useWordle = (solution) => {
         solutionArray[solutionArray.indexOf(l.key)] = null;
       }
     });
-    console.log('formatGuess',formattedGuess);
     return formattedGuess;
   };
 
